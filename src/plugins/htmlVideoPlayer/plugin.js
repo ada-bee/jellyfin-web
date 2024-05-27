@@ -428,6 +428,7 @@ export class HtmlVideoPlayer {
     setSrcWithHlsJs(elem, options, url) {
         return new Promise((resolve, reject) => {
             requireHlsPlayer(async () => {
+                let maxBufferSize = 536870912;
                 let maxBufferLength = 600;
                 let maxMaxBufferLength = 900;
 
@@ -444,6 +445,7 @@ export class HtmlVideoPlayer {
                 const hls = new Hls({
                     startPosition: options.playerStartPositionTicks / 10000000,
                     manifestLoadingTimeOut: 20000,
+                    maxBufferSize: maxBufferSize,
                     maxBufferLength: maxBufferLength,
                     maxMaxBufferLength: maxMaxBufferLength,
                     videoPreference: { preferHDR: true },
