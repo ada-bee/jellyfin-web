@@ -428,7 +428,8 @@ export class HtmlVideoPlayer {
     setSrcWithHlsJs(elem, options, url) {
         return new Promise((resolve, reject) => {
             requireHlsPlayer(async () => {
-                let maxBufferLength = 30;
+                let maxBufferLength = 600;
+                let maxMaxBufferLength = 900;
 
                 // Some browsers cannot handle huge fragments in high bitrate.
                 // This issue usually happens when using HWA encoders with a high bitrate setting.
@@ -444,6 +445,7 @@ export class HtmlVideoPlayer {
                     startPosition: options.playerStartPositionTicks / 10000000,
                     manifestLoadingTimeOut: 20000,
                     maxBufferLength: maxBufferLength,
+                    maxMaxBufferLength: maxMaxBufferLength,
                     videoPreference: { preferHDR: true },
                     xhrSetup(xhr) {
                         xhr.withCredentials = includeCorsCredentials;
