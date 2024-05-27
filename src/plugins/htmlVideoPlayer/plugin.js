@@ -113,6 +113,9 @@ function requireHlsPlayer(callback) {
         hls.DefaultConfig.lowLatencyMode = false;
         hls.DefaultConfig.backBufferLength = Infinity;
         hls.DefaultConfig.liveBackBufferLength = 90;
+        hls.DefaultConfig.maxBufferSize = 536870912;
+        hls.DefaultConfig.maxBufferLength = 600;
+        hls.DefaultConfig.maxMaxBufferLength = 900;
         window.Hls = hls;
         callback();
     });
