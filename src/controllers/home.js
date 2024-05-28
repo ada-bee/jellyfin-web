@@ -48,6 +48,12 @@ class HomeView extends TabbedView {
 
             case 1:
                 depends = 'favorites';
+                break;
+
+            case 2:
+                window.open = 'https://request.tagliatelle.tv/';
+                depends = 'hometab';
+                break;
         }
 
         const instance = this;
