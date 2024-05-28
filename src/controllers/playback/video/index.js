@@ -274,7 +274,7 @@ export default function (view) {
         const documentTitle = parentName || (item ? item.Name : null);
 
         if (documentTitle) {
-            document.title = (documentTitle + ' | tagliatelle.tv');
+            document.title = (documentTitle + ' | Tagliatelle TV');
         }
     }
 

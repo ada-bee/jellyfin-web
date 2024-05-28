@@ -729,7 +729,7 @@ function setDefaultTitle () {
         pageTitleElement.innerHTML = '';
     }
 
-    document.title = 'tagliatelle.tv';
+    document.title = 'Tagliatelle TV';
 }
 
 function setTitle (title) {
@@ -756,9 +756,9 @@ function setTitle (title) {
     }
 
     if (!title) {
-        document.title = 'tagliatelle.tv';
+        document.title = 'Tagliatelle TV';
     } else {
-        document.title = title + ' | tagliatelle.tv';
+        document.title = title + ' | Tagliatelle TV';
     }
 }
 
