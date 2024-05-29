@@ -21,6 +21,10 @@ function getLibraryButtonsHtml(items: BaseItemDto[]) {
         html += '<a is="emby-linkbutton" href="' + appRouter.getRouteUrl(item) + '" class="raised homeLibraryButton"><span class="material-icons homeLibraryIcon ' + icon + '" aria-hidden="true"></span><span class="homeLibraryText">' + escapeHtml(item.Name) + '</span></a>';
     }
 
+    // jellyseer link
+    const jsIcon = imageHelper.getLibraryIcon("view_list");
+    html += '<a is="emby-linkbutton" href="https://request.tagliatelle.tv/" class="raised homeLibraryButton jellyseerButton"><span class="material-icons homeLibraryIcon ' + jsIcon + '" aria-hidden="true"></span><span class="homeLibraryText">' + '</span></a>';
+
     html += '</div>';
     html += '</div>';
 
