@@ -22,7 +22,7 @@ function getLibraryButtonsHtml(items: BaseItemDto[]) {
     }
 
     // jellyseer link
-    html += '<a href="https://request.tagliatelle.tv/" target="_blank" style="display: none;" class="raised homeLibraryButton emby-button jellyseerButton"><span class="material-icons homeLibraryIcon ' + 'view_list' + '" aria-hidden="true"></span><span class="homeLibraryText">' + "Requests 🡕" + '</span></a>';
+    html += '<a href="https://request.tagliatelle.tv/" target="_blank" class="raised homeLibraryButton emby-button jellyseerButton"><span class="material-icons homeLibraryIcon ' + 'shopping_cart' + '" aria-hidden="true"></span><span class="homeLibraryText">' + "Requests 🡕" + '</span></a>';
 
     html += '</div>';
     html += '</div>';
