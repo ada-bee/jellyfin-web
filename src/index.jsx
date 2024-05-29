@@ -224,7 +224,7 @@ async function onAppReady() {
             // Always add user CSS
             css.push(currentSettings.customCss());
 
-            let app = apiClient.appName
+            let app = apiClient.appName()
             if (app.includes("Jellyfin Web")) {
                 style.textContent = css.join('\n');
             } 
