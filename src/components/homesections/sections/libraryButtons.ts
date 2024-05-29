@@ -22,8 +22,7 @@ function getLibraryButtonsHtml(items: BaseItemDto[]) {
     }
 
     // jellyseer link
-    const jsIcon = imageHelper.getLibraryIcon("view_list");
-    html += '<a is="emby-linkbutton" href="https://request.tagliatelle.tv/" class="raised homeLibraryButton jellyseerButton"><span class="material-icons homeLibraryIcon ' + jsIcon + '" aria-hidden="true"></span><span class="homeLibraryText">' + '</span></a>';
+    html += '<a href="https://request.tagliatelle.tv/" target="_blank" class="raised homeLibraryButton jellyseerButton"><span class="material-icons homeLibraryIcon ' + '" aria-hidden="true"></span><span class="homeLibraryText">' + "Requests 🡕" + '</span></a>';
 
     html += '</div>';
     html += '</div>';
