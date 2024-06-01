@@ -729,7 +729,7 @@ function setDefaultTitle () {
         pageTitleElement.innerHTML = '';
     }
 
-    document.title = 'Jellyfin';
+    document.title = 'Tagliatelle TV';
 }
 
 function setTitle (title) {
@@ -755,7 +755,11 @@ function setTitle (title) {
         pageTitleElement.innerText = html || '';
     }
 
-    document.title = title || 'Jellyfin';
+    if (!title) {
+        document.title = 'Tagliatelle TV';
+    } else {
+        document.title = title + ' | Tagliatelle TV';
+    }
 }
 
 function setTransparentMenu (transparent) {
