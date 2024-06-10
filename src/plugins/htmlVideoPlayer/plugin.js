@@ -113,6 +113,9 @@ function requireHlsPlayer(callback) {
         hls.DefaultConfig.lowLatencyMode = false;
         hls.DefaultConfig.backBufferLength = Infinity;
         hls.DefaultConfig.liveBackBufferLength = 90;
+        hls.DefaultConfig.maxBufferSize = 536870912;
+        hls.DefaultConfig.maxBufferLength = 600;
+        hls.DefaultConfig.maxMaxBufferLength = 900;
         window.Hls = hls;
         callback();
     });
@@ -428,7 +431,9 @@ export class HtmlVideoPlayer {
     setSrcWithHlsJs(elem, options, url) {
         return new Promise((resolve, reject) => {
             requireHlsPlayer(async () => {
-                let maxBufferLength = 30;
+                let maxBufferSize = 536870912;
+                let maxBufferLength = 600;
+                let maxMaxBufferLength = 900;
 
                 // Some browsers cannot handle huge fragments in high bitrate.
                 // This issue usually happens when using HWA encoders with a high bitrate setting.
@@ -443,7 +448,9 @@ export class HtmlVideoPlayer {
                 const hls = new Hls({
                     startPosition: options.playerStartPositionTicks / 10000000,
                     manifestLoadingTimeOut: 20000,
+                    maxBufferSize: maxBufferSize,
                     maxBufferLength: maxBufferLength,
+                    maxMaxBufferLength: maxMaxBufferLength,
                     videoPreference: { preferHDR: true },
                     xhrSetup(xhr) {
                         xhr.withCredentials = includeCorsCredentials;
@@ -1585,13 +1592,13 @@ export class HtmlVideoPlayer {
 
                 // Can't autoplay in these browsers so we need to use the full controls, at least until playback starts
                 if (!appHost.supports('htmlvideoautoplay')) {
-                    html += '<video class="' + cssClass + '" preload="metadata" autoplay="autoplay" controls="controls" webkit-playsinline playsinline>';
+                    html += '<video class="' + cssClass + '" preload="auto" autoplay="autoplay" controls="controls" webkit-playsinline playsinline>';
                 } else if (browser.web0s) {
                     // in webOS, setting preload auto allows resuming videos
                     html += '<video class="' + cssClass + '" preload="auto" autoplay="autoplay" webkit-playsinline playsinline>';
                 } else {
                     // Chrome 35 won't play with preload none
-                    html += '<video class="' + cssClass + '" preload="metadata" autoplay="autoplay" webkit-playsinline playsinline>';
+                    html += '<video class="' + cssClass + '" preload="auto" autoplay="autoplay" webkit-playsinline playsinline>';
                 }
 
                 html += '</video>';
