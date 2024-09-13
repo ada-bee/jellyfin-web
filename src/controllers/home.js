@@ -46,6 +46,7 @@ class HomeView extends TabbedView {
 
             case 1:
                 depends = 'favorites';
+                break;
         }
 
         const instance = this;
